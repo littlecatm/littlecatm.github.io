@@ -75,6 +75,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-es6学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/07/es6%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2024-06-06T16:28:54.000Z" itemprop="datePublished">2024-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/07/es6%E5%AD%A6%E4%B9%A0/">es6学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><h3 id="在某个时段会调用并返回一个结果-【resolve-reject】只会返回其中一个"><a href="#在某个时段会调用并返回一个结果-【resolve-reject】只会返回其中一个" class="headerlink" title="在某个时段会调用并返回一个结果 【resolve,reject】只会返回其中一个"></a>在某个时段会调用并返回一个结果 【resolve,reject】只会返回其中一个</h3><p>联想：【axios】也是一种promise</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">resolve</span>(<span class="string">&#x27;处理成功后的返回&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">reject</span>(<span class="string">&#x27;处理失败后的返回&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    promise.<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;处理成功&#x27;</span>,res)</span></span><br><span class="line"><span class="language-javascript">    &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;处理失败&#x27;</span>,err)</span></span><br><span class="line"><span class="language-javascript">    &#125;).<span class="title function_">finally</span>(<span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步函数处理全部完成&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="es6模块化开发"><a href="#es6模块化开发" class="headerlink" title="es6模块化开发"></a>es6模块化开发</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> demo = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> demo2 = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> demo3 = <span class="keyword">function</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//写法一</span></span><br><span class="line"><span class="keyword">export</span> &#123;demo,demo2,demo3&#125;</span><br><span class="line"><span class="comment">//写法二</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;demo,demo2,demo3&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在script中type一定得写module 不然不生效</span></span><br><span class="line">&lt;script type=<span class="string">&quot;module&quot;</span>&gt;</span><br><span class="line">   <span class="comment">//对应写法一导入</span></span><br><span class="line">    <span class="keyword">import</span> * <span class="keyword">as</span> data <span class="keyword">from</span> <span class="string">&#x27;./test.js&#x27;</span></span><br><span class="line">    <span class="comment">//对应写法二</span></span><br><span class="line">    <span class="keyword">import</span> data <span class="keyword">from</span> <span class="string">&#x27;./test.js&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> a = data.<span class="title function_">demo</span>()</span><br><span class="line">    <span class="keyword">let</span> b = data.<span class="title function_">demo2</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">demo3</span>(a,b));<span class="comment">//7</span></span><br><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://littlecatm.github.io/2024/06/07/es6%E5%AD%A6%E4%B9%A0/" data-id="clxc9iy3g000094r7g9du4vtk" data-title="es6学习" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-vue3组件通信" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/06/04/vue3%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" class="article-date">
@@ -116,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://littlecatm.github.io/2024/06/04/vue3%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" data-id="clx0mdyen0001q4r74qojaw9w" data-title="vue3组件通信 父传子" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://littlecatm.github.io/2024/06/04/vue3%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" data-id="clxc9iy3z000294r751un0dnv" data-title="vue3组件通信 父传子" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -159,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://littlecatm.github.io/2024/06/04/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="clx0mdyeq0002q4r70c3d857s" data-title="vue学习笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://littlecatm.github.io/2024/06/04/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="clxc9iy40000394r7el2gbgdt" data-title="vue学习笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -210,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://littlecatm.github.io/2024/06/03/hello-world/" data-id="clx0mdyei0000q4r7hp3wb7hm" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://littlecatm.github.io/2024/06/03/hello-world/" data-id="clxc9iy3w000194r76ako3r6w" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -251,6 +292,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/06/07/es6%E5%AD%A6%E4%B9%A0/">es6学习</a>
+          </li>
         
           <li>
             <a href="/2024/06/04/vue3%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">vue3组件通信 父传子</a>
